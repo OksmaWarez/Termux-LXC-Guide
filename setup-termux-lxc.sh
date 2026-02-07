@@ -4,10 +4,12 @@
 GITHUB_URL="https://github.com/Saikatsaha1996/Termux-LXC-Guide"
 export HOME="/data/data/com.termux/files/home"
 GITHUB_DIR="${HOME}/$(basename "${GITHUB_URL}")"
-DEPENDENCIES="lxc tsu nano mount-utils pulseaudio termux-tools dos2unix curl git iptables dnsmasq"
+DEPENDENCIES="lxc sudo nano mount-utils pulseaudio termux-tools dos2unix curl git iptables dnsmasq"
 export TMPDIR="$(dirname "$(mktemp -u)")"
 
 clear 2>/dev/null
+
+pkg remove tsu # I HATE TSU
 
 # Check if Termux dependencies are installed
 for i in root-repo x11-repo tur-repo ${DEPENDENCIES}; do
